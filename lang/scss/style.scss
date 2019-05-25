@@ -1,0 +1,325 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2018-10-07, 17:14:10
+    Author     : Konrad
+*/ 
+
+$primary-color: #001829;
+$primary-background: #001829;
+$primary-font: 'Oswald', sans-serif;
+
+$secondary-color: #003153;
+$light-blue: #0095ff;
+
+@mixin content($padding, $margin){
+    padding: $padding;
+    margin: $margin;
+}
+
+@mixin box($background, $padding){
+    background: $background;
+    padding: $padding; 
+}
+
+body{
+    font-family: $primary-font;
+    font-size: 20px;
+    margin-top: 140px;
+}
+
+a{
+    color: $light-blue;
+    transition: .3s all;
+    &:hover{
+        color: $primary-color;
+        text-decoration: none;
+    }
+}
+
+.menu-top{
+    font-size: 16px;
+    padding: 8px 0px;
+    background: #fff;
+    .nav { 
+        flex-direction: row;
+        li{
+            a{
+                padding-left: 7px;
+                padding-right: 7px;
+                transition: .3s all;
+            }
+        }
+    }
+}
+
+.menu{
+    margin-top: 40px;
+    background: #fff;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    border-top: 1px solid #eee;
+    @media(max-width:768px) {
+        background: #fff;
+    }
+    a{
+        color: #000;
+        text-decoration: none;
+    }
+    .navbar-toggler{
+        color: #00204f;
+    }
+    .navbar-brand{
+        padding-top: 10px;
+        font-size: 28px;
+        font-weight: 500;
+        color: $primary-color;
+    }
+    .nav > li{
+        position: relative;
+        &::after{
+            display: block;
+            content: '';
+            width: 1px;
+            height: 15px;
+            background: #ddd;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            @media(max-width:768px) {
+                display: none;
+            }
+        }
+        &:last-child::after{
+            display: none;
+        }
+        a{
+            padding-left: 15px;
+            padding-right: 15px;
+            transition: .3s all;
+            &:hover{
+                color: #00204f;
+            }
+        }
+    }
+}
+
+.top-info{
+    background: url('../images/bg_section.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center bottom;
+    padding: 120px 0px;
+    color: #fff;
+    .page-title{
+        font-size: 46px;
+        text-transform: uppercase;
+    }
+}
+
+.info{
+    background: #001829;
+    color: #fff;
+    padding: 40px 0px;
+    .item{
+        padding: 15px;
+        border-right: 1px dotted rgba(255, 255, 255, 0.2);
+        text-align: center;
+        .title{
+            margin-top: 15px;
+            font-weight: 300;
+        }
+        &:last-child{
+            border-right: none;
+        }
+    }
+}
+
+.oferta{
+    padding: 60px 0px;
+    background: #fff;
+    color: #111;
+    .title{
+        color: $primary-color;
+    }
+}
+
+.korekty{
+    background: url('../images/bg_section2.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center bottom;
+    padding: 60px 0px;
+    color: #fff;
+    .title{
+        padding-bottom: 20px;
+        position: relative;
+        &::after{
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            right: 0;
+            width: 60px;
+            height: 3px;
+            margin: 0 auto;
+            background: $light-blue;
+        }
+    }
+}
+
+.contact{
+    padding: 60px 0px;
+    background: #f8f8f8;
+}
+
+.partners{
+    padding: 60px 0px;
+    .title{
+        margin-bottom: 15px;
+        font-weight: 300;
+        font-size: 26px;
+    }
+}
+
+.footer{
+    font-size: 16px;
+    padding: 25px 15px;
+    background: $primary-color;
+    color: #fff;
+    @media(max-width:768px) {
+        text-align: center;
+    }
+    a{
+        color: #fff;
+        text-decoration: none;
+        transition: .3s all;
+        &:hover{
+            color: $light-blue;
+        }
+    }
+    & .copyright{
+        a{
+            color: #fff;
+            position: relative;
+            display: inline-block;
+            &::after{
+                content: '';
+                display: block;
+                width: 0;
+                height: 2px;
+                background: $light-blue;
+                transition: .3s all;
+            }
+        }
+        a:hover{
+            text-decoration: none;
+            &::after{
+                content: '';
+                display: block;
+                width: 100%;
+                height: 2px;
+                background: $light-blue;
+            }
+        }
+        text-align: right;
+        @media(max-width:768px) {
+            text-align: center;
+        }
+    }  
+}
+
+
+#toTop{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+    display: none;
+    background: $primary-color;
+    border-radius: 0px;
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    opacity: 1;
+    transition: 0.5s all;
+    height: 50px;
+    width: 50px;
+    line-height: 38px;
+    z-index: 20;
+}
+
+.slick-arrow{
+    background: #e02a24;
+    border: none;
+    color: #fff;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px 20px;
+    &:hover{
+        cursor: pointer;
+        background: $secondary-color;
+    }
+    &.slick-prev{
+        left: -15px;
+    }
+    &.slick-next{
+        right: -15px;
+    }
+}
+
+.btn-more{
+    background: $primary-color;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 0px;
+    svg{
+        margin-left: 10px;
+    }
+    &:hover{
+        background: $secondary-color;
+        color: #fff;
+    }
+}
+
+.morphext > .animated {
+    display: inline-block;
+}
+
+#js-rotating{
+    font-size: 26px;
+}
+
+// contact form 7
+span.wpcf7-not-valid-tip{
+    font-size: 15px !important;
+}
+
+.form-control.wpcf7-not-valid{
+    border-color: #f00;
+}
+
+div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-ng, div.wpcf7-aborted{
+    border: 2px solid #ff0000 !important;
+    font-size: 16px !important;
+    margin: 2em 0em 0em !important;
+}
+
+div.wpcf7 input[type="file"]{
+    font-size: 16px;
+}
+
+.modal{
+    .modal-title{
+        color: $primary-color;
+    }
+    .modal-body{
+        color: #111;
+    }
+}
